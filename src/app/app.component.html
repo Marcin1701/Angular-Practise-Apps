@@ -1,4 +1,4 @@
-<div class="container mt-5">
+< class="container mt-5">
   <nav class="row">
     <div class="nav-wrapper">
       <span class="brand-logo center">{{ title }}</span>
@@ -45,10 +45,14 @@
     </button>
   </div>
 
+  <div>Change detection</div>
+  <h5>Counter:</h5>
+  <h6>{{ counter }}</h6>
+  <button (click)="incrementCounter()">+1</button>
+
   <footer class="page-footer mt-5">
     <div class="footer-copyright">
       <div class="container">{{ getFooter() }}</div> 
       <div>{{ GetterFooter }}</div>
     </div>
   </footer>
-</div>

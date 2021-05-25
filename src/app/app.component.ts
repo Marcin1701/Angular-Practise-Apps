@@ -7,7 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Lista zadań';
+  counter = 0;
 
+  // W angularze jest specjalny mechanizm change detection
+
+  constructor() {
+    // Inkrementacja co 200ms
+    setInterval(() => { this.counter++ }, 1000);
+  }
+
+  incrementCounter() {
+    this.counter++;
+  }  
 
   getFooter(): string {
     return '2021 © Lista zadań zbudowana w Angularze.';
