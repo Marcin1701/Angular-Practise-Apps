@@ -6,5 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // jeszcze tutaj nic nie ma
+  title = 'Lista zadań';
+
+
+  getFooter(): string {
+    return '2021 © Lista zadań zbudowana w Angularze.';
+  }
+
+  get GetterFooter(): string {
+    return 'Footer from TS getter!';
+  }
+
+  getNumber() {
+    return 2;
+  }
+
+  getPerson() {
+    return { 
+      name: "Marcin",
+      age: "22"
+    }
+  }
 }
