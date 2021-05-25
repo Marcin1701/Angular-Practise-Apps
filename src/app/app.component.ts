@@ -28,6 +28,10 @@ export class AppComponent {
     return 'Footer from TS getter!';
   }
 
+  getDate(): Date {
+    return new Date();
+  }
+
   getNumber() {
     return 2;
   }
