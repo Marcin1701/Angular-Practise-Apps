@@ -7,9 +7,16 @@ npm install
 
 Generate new component:
 ng generate component path/name_of_component
+ng g c name_of_component
+
+New component flat:
+ng generate component side-bar --flat
 
 Generate new service:
 ng generate service path/service_name
+
+Generate inline component:
+ng generate component footer --inlineStyle true --inlineTemplate true
 
 Start app:
 ng serve
@@ -22,5 +29,4 @@ ng lint
 
 Materialize CSS:
 npm install materialize-css@1.0.0
-
 
