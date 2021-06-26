@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Lista zadań';
   counter = 0;
+  num = 8.12312312143;
+  money = 2.32;
 
   // W angularze jest specjalny mechanizm change detection
 

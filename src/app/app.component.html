@@ -60,3 +60,18 @@
   <div>
     Polska data: {{ getDate() | date: 'fullDate' : '' : 'pl'}}
   </div>
+  <div>Polska data: {{ getDate() | date: 'fullDate' : '' : 'pl' | uppercase }}</div>
+  <div>
+    Liczba bez formatowania: {{ num }}
+    <br>
+    Liczba całkowita: {{ num | number: '1.0-0' }}
+  </div>
+  <div>
+    Formatowanie kwot: {{ money | currency: 'PLN'}}
+    <br>
+    Formatowanie kwot: {{ money | currency: 'USD'}}
+    <br>
+    Formatowanie kwot: {{ money | currency: 'EUR'}}
+    <!-- JSON PIPE POKAZUJE OBIEKTY -->
+    
+  </div>
