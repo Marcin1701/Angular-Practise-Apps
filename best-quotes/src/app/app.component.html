@@ -1,4 +1,5 @@
-<app-navbar></app-navbar>
+<app-navbar title="Najlepsze Cytaty">
+</app-navbar>
 <div class="container q-container">
   <button class="btn-floating teal add-button" (click)='onSwitchForm()'>
     <i class="material-icons">add</i>
@@ -48,27 +49,13 @@
       </div>
     </div>
     <div class="col s4">
-      <app-ranking [quotes]="quotes">
+      <app-ranking 
+      [quotes]="bestQuotes()" 
+      category="Najlepsze">
       </app-ranking>
-    </div>
-    <div class="col s4">
-      <div class="col s12">
-        <h5>Najgorsze</h5>
-        <div class="collection">
-          <ng-container *ngFor="let quotation of quotes">
-            <p class="collection-item" *ngIf="quotation.votes < 0">
-              <span class="blue lighten-4 badge">
-                {{ quotation.votes }}
-              </span>
-              {{ quotation.quotation }}
-              <br>
-              <span class="blue-text">
-                {{ quotation.author }}
-              </span>
-            </p>
-          </ng-container>
-        </div>
-      </div>
+      <app-ranking [quotes]="worstQuotes()"
+      category="Najgorsze">
+      </app-ranking>
     </div>
   </div>
 </div>

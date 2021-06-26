@@ -9,6 +9,12 @@ import { Quotation } from '../models/quotation';
 })
 export class RankingComponent{
 
+  // Dump component - wyświetla dane - jak tutaj
+  // Logika jest w smart component
+
+  @Input()
+  category: string;
+
   @Input()
   quotes: Quotation[];
 }
