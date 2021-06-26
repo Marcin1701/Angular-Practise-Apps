@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor() {
     // Inkrementacja co 200ms
-    setInterval(() => { this.counter++ }, 1000);
+    setInterval(() => { this.counter++ }, 200);
   }
 
   incrementCounter() {
