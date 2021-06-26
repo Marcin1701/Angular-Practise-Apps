@@ -10,8 +10,15 @@ import { QUOTES } from './models/database';
 export class AppComponent {
   showForm = false;
   quotes: Quotation[] = QUOTES;
+  quotation: Quotation = { author: '', quotation: '', votes: 0}
 
   onSwitchForm(): void {
     this.showForm = !this.showForm;
+  }
+
+  addQuotation() {
+    // Add at start of the list
+    this.quotes.unshift(this.quotation);
+    this.quotation = { author: '', quotation: '', votes: 0};
   }
 }
