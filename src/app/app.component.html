@@ -18,20 +18,16 @@
       <input class="col s8" 
       type="text" 
       placeholder="Dodaj zadanie i datę wykonania" 
-      #nameInput 
-      (keyup)="0"
       [(ngModel)]="taskName"
       />
       <input class="col s2 disabled" 
       type="date" 
-      #dateInput 
-      (change)="0"
       [(ngModel)]="taskDate"
       />
       <button class="btn-floating" 
-      (click)="createTask(nameInput.value, dateInput.value); 
+      (click)="createTask(); 
       nameInput.value =''; dateInput.value = '' "
-      [disabled]="nameInput.value === '' || dateInput.value === '' "
+      [disabled]="taskName === '' || taskDate === '' "
       >+
       </button>
     </div>
