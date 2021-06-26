@@ -1,4 +1,6 @@
+import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { Quotation } from '../models/quotation';
 
 @Component({
@@ -7,6 +9,10 @@ import { Quotation } from '../models/quotation';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
+
+  @Output() 
+  newQuotation = 
+    new EventEmitter<Quotation>();
 
   showForm = true;
 
@@ -18,6 +24,7 @@ export class FormComponent {
   }
 
   addQuotation() {
+    this.newQuotation.emit(this.quotation);
     // Add at start of the list
     this.quotation = { author: '', quotation: '', votes: 0};
   }

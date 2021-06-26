@@ -21,4 +21,8 @@ export class AppComponent {
   worstQuotes() {
     return this.quotes.filter(q => q.votes < 0);
   }
+
+  onNewQuotation(quotation: Quotation) {
+    this.quotes.unshift(quotation);
+  }
 }
