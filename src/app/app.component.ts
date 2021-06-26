@@ -56,10 +56,10 @@ export class AppComponent {
     this.tasks = [];
   }
   
-  createTask(name: string) {
+  createTask(name: string, date: string) {
     const task: Task = {
       name,
-      deadline: '2021-06-26',
+      deadline: date,
       done: false
     };
     this.tasks.push(task);

@@ -14,8 +14,8 @@
 
     <div class="row">
       <input class="col s8" type="text" placeholder="Dodaj zadanie i datę wykonania" #nameInput/>
-      <input class="col s2 disabled" type="date"/>
-      <button class="btn-floating" (click)="createTask(nameInput.value); nameInput.value ='' ">+
+      <input class="col s2 disabled" type="date" #dateInput/>
+      <button class="btn-floating" (click)="createTask(nameInput.value, dateInput.value); nameInput.value =''; dateInput.value = '' ">+
       </button>
     </div>
 
