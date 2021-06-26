@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Task } from './task'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +11,24 @@ export class AppComponent {
   // Konfiguracja aplikacji
   // Obiekt przechowuje albo string albo datę
   config: { [key: string]: string | Date } = null
+
+  tasks: Task[] = [
+    { 
+      name: 'Siłownia',
+      deadline: '2020-01-02',
+      done: false
+    },
+    {
+      name: 'Nauka Angulara',
+      deadline: '2020-02-02',
+      done: false
+    },
+    {
+      name: 'Sprzątanie',
+      deadline: '2020-05-02',
+      done: false
+    }
+  ];
 
   constructor() {
     // Inicjalizacja z opóźnieniem
