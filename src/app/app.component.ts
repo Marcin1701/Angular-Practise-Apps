@@ -6,42 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Lista zadań';
-  counter = 0;
-  num = 8.12312312143;
-  money = 2.32;
-
-  // W angularze jest specjalny mechanizm change detection
+  // Konfiguracja aplikacji
+  // Obiekt przechowuje albo string albo datę
+  config: { [key: string]: string | Date } = null
 
   constructor() {
-    // Inkrementacja co 200ms
-    setInterval(() => { this.counter++ }, 200);
-  }
-
-  incrementCounter() {
-    this.counter++;
-  }  
-
-  getFooter(): string {
-    return '2021 © Lista zadań zbudowana w Angularze.';
-  }
-
-  get GetterFooter(): string {
-    return 'Footer from TS getter!';
-  }
-
-  getDate(): Date {
-    return new Date();
-  }
-
-  getNumber() {
-    return 2;
-  }
-
-  getPerson() {
-    return { 
-      name: "Marcin",
-      age: "22"
-    }
+    // Inicjalizacja z opóźnieniem
+    // Pierwsza próba renderowania jest błędem
+    // Dodajemy '?' aby opóźnić odwołanie do nulla
+    setTimeout(() => {
+      this.config = {
+        title: 'Lista zadań',
+        footer: 'Lista zadań Angular',
+        date: new Date()
+      };
+    }, 500);
   }
 }
