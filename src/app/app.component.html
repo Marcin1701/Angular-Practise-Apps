@@ -20,9 +20,9 @@
     </div>
 
     <ul class="collection">
-      <li class="collection-item row" *ngFor="let task of tasks">
+      <li class="collection-item row" *ngFor="let task of tasks; let i = index">
           <span class="col s10">
-            {{ task.name }} - {{ task.deadline | date: 'd.MM EEEE' : '' : 'pl'}} - {{ task.done}}
+            {{ i + 1 }}. {{ task.name }} - {{ task.deadline | date: 'd.MM EEEE' : '' : 'pl'}} - {{ task.done}}
           </span>
         <div class="col s2 right-align">
           <button class="btn-floating btn-small red mr-5">
