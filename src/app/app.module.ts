@@ -3,6 +3,7 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import localPl from '@angular/common/locales/pl';
 
@@ -13,7 +14,8 @@ registerLocaleData(localPl)
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
   ],
   providers: [
     // domyślna lokalizacja - dla polskiej - globalna

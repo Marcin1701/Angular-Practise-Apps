@@ -19,10 +19,12 @@ import { Task } from './task'
 export class AppComponent {
   // Konfiguracja aplikacji
   // Obiekt przechowuje albo string albo datę
+  taskName: string = "Zadanie codzienne";
+  taskDate: string = "";
   config: { [key: string]: string | Date } = null
 
   tasks: Task[] = [
-    { 
+    {
       name: 'Siłownia',
       deadline: '2020-01-02',
       done: false
@@ -38,6 +40,10 @@ export class AppComponent {
       done: false
     }
   ];
+
+  /*
+    Print HTML as HTML - [innerHtml]="htmlcode" - sanitization can block scripts
+  */
 
   constructor() {
     // Inicjalizacja z opóźnieniem
@@ -55,7 +61,7 @@ export class AppComponent {
   clearTasks() {
     this.tasks = [];
   }
-  
+
   createTask(name: string, date: string) {
     const task: Task = {
       name,
