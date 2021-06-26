@@ -13,9 +13,9 @@
     </div>
 
     <div class="row">
-      <input class="col s8" type="text" placeholder="Dodaj zadanie i datę wykonania"(keyup)="onKeyUp($event)"/>
+      <input class="col s8" type="text" placeholder="Dodaj zadanie i datę wykonania" #nameInput/>
       <input class="col s2 disabled" type="date"/>
-      <button class="btn-floating" (click)="createTask()">+
+      <button class="btn-floating" (click)="createTask(nameInput.value); nameInput.value ='' ">+
       </button>
     </div>
 
