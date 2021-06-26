@@ -21,6 +21,7 @@ export class AppComponent {
   // Obiekt przechowuje albo string albo datę
   taskName: string = "Zadanie codzienne";
   taskDate: string = "";
+  editMode: boolean = false;
   config: { [key: string]: string | Date } = null
 
   tasks: Task[] = [
@@ -71,5 +72,9 @@ export class AppComponent {
     this.tasks.push(task);
     this.taskName = '';
     this.taskDate = '';
+  }
+
+  switchEditMode() {
+    this.editMode = !this.editMode;
   }
 }
