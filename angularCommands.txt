@@ -1,0 +1,26 @@
+New app:
+ng new name_of_app
+npm install -g @angular/cli
+
+Init node_modules:
+npm install
+
+Generate new component:
+ng generate component path/name_of_component
+
+Generate new service:
+ng generate service path/service_name
+
+Start app:
+ng serve
+
+Build for production:
+ng build name_of_app -c production
+
+Linter:
+ng lint
+
+Materialize CSS:
+npm install materialize-css@1.0.0
+
+
