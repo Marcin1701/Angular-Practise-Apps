@@ -2,6 +2,15 @@ import { Component } from '@angular/core';
 
 import { Task } from './task'
 
+/**
+ *  Data binding: 
+ *  One way: HTML -> component class
+ *  Property binding: component -> HTML
+ *  Two way: component -> <- HTML
+ *  
+ *  DOM
+ *  Object model of document
+*/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
