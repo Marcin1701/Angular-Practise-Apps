@@ -33,7 +33,7 @@ export class AppComponent {
     {
       name: 'Nauka Angulara',
       deadline: '2020-02-02',
-      done: false
+      done: true
     },
     {
       name: 'Sprzątanie',
