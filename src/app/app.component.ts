@@ -55,4 +55,11 @@ export class AppComponent {
   clearTasks() {
     this.tasks = [];
   }
+
+  onKeyUp(event: KeyboardEvent) {
+    // Rzutowanie do elementu
+    const target = event.target as HTMLInputElement;
+    // Przechwytywanie obiektu wpisywanego do inputa
+    console.log(target.value);
+  }
 }
