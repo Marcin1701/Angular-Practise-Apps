@@ -17,6 +17,7 @@ import { Task } from './task'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  taskName: string;
   // Konfiguracja aplikacji
   // Obiekt przechowuje albo string albo datę
   config: { [key: string]: string | Date } = null
@@ -60,6 +61,16 @@ export class AppComponent {
     // Rzutowanie do elementu
     const target = event.target as HTMLInputElement;
     // Przechwytywanie obiektu wpisywanego do inputa
+    this.taskName = target.value;
     console.log(target.value);
+  }
+  
+  createTask() {
+    const task: Task = {
+      name: this.taskName,
+      deadline: '2021-06-26',
+      done: false
+    };
+    this.tasks.push(task);
   }
 }
