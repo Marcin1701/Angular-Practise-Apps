@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WordsService } from 'src/app/services/words.service';
 
 @Component({
   selector: 'app-question',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private wordsService: WordsService
+  ) {
+
+  }
 
   ngOnInit(): void {
   }
