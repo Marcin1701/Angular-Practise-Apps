@@ -8,6 +8,7 @@ import { RankingComponent } from './ranking/ranking.component';
 import { FormComponent } from './form/form.component';
 import { ButtonComponent } from './button/button.component';
 import { ButtonVotesComponent } from './button-votes/button-votes.component';
+import { QuoteListComponent } from './quote-list/quote-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ButtonVotesComponent } from './button-votes/button-votes.component';
     RankingComponent,
     FormComponent,
     ButtonComponent,
-    ButtonVotesComponent
+    ButtonVotesComponent,
+    QuoteListComponent
   ],
   imports: [
     BrowserModule,

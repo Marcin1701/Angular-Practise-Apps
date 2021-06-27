@@ -22,9 +22,7 @@ export class AppComponent {
     this.quotes.unshift(quotation);
   }
 
-  onAddQuotationVote(quotation: Quotation, votes: number) {
-    this.quotes
-    .filter(q => q === quotation)
-    .map(q => q.votes = votes);
+  onNewQuotes(quotes: Quotation[]): void {
+    this.quotes = quotes;
   }
 }
