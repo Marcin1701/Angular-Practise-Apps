@@ -2,10 +2,12 @@
 </app-navbar>
 <div class="container q-container">
 
-  <button class="btn-floating teal add-button">
+  <button class="btn-floating teal add-button"
+  (click)="form.onSwitchForm()">
     <i class="material-icons">add</i>
   </button>
   <app-form 
+  #form
   (newQuotation)="onNewQuotation($event)">
   </app-form>
 

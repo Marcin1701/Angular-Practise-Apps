@@ -14,7 +14,7 @@ export class FormComponent {
   newQuotation = 
     new EventEmitter<Quotation>();
 
-  showForm = true;
+  showForm = false;
 
   quotation: Quotation = 
     { author: '', quotation: '', votes: 0}
