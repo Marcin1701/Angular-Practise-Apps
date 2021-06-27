@@ -14,4 +14,16 @@ export class WordsService {
   constructor() {
     this.words = WORDS;
    }
+
+   getWords(): WordType[] {
+     return this.words;
+   }
+
+   getNouns(): WordType[] {
+     return this.nouns;
+   }
+
+   getVerbs(): WordType[] {
+     return this.verbs;
+   }
 }
