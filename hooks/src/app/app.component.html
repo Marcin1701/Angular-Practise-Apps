@@ -1,0 +1,40 @@
+<nav class="purple darken-4">
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a>Home</a>
+      </li>
+      <li routerLink="/hooks" routerLinkActive="active"><a>Hooks</a></li>
+      <li routerLink="/on-change" routerLinkActive="active">
+        <a>OnChanges</a>
+      </li>
+      <li routerLink="/on-init" routerLinkActive="active"><a>OnInit</a></li>
+      <li routerLink="/do-check" routerLinkActive="active"><a>DoCheck</a></li>
+      <li routerLink="/after-content-init" routerLinkActive="active">
+        <a>AfterContentInit</a>
+      </li>
+      <li routerLink="/after-content-checked" routerLinkActive="active">
+        <a>AfterContentChecked</a>
+      </li>
+      <li routerLink="/after-view-init" routerLinkActive="active">
+        <a>AfterViewInit</a>
+      </li>
+      <li routerLink="/after-view-checked" routerLinkActive="active">
+        <a>AfterViewChecked</a>
+      </li>
+      <li routerLink="/on-destroy" routerLinkActive="active">
+        <a>OnDestroy</a>
+      </li>
+      <li routerLink="/error" routerLinkActive="active"><a>Error</a></li>
+      <li routerLink="/error2" routerLinkActive="active"><a>Error2</a></li>
+      <li><a (click)="(0)">Empty</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
