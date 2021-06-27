@@ -8,8 +8,7 @@
     <i class="material-icons">add</i>
   </app-button>
   <app-form 
-  #form
-  (newQuotation)="onNewQuotation($event)">
+  #form (newQuotation)="onNewQuotation($event)">
   </app-form>
 
   <div class="row">
@@ -30,14 +29,20 @@
               <span class="badge grey darken-2 left white-text"> 
                 {{ quotation.votes }}
               </span>
-              <app-button customClasses="btn blue mr-5"
-              (click)="addVote(quotation, +1)">
-                <i class="material-icons">exposure_plus_1</i>
-              </app-button>
-              <app-button customClasses="btn red"
-              (click)="addVote(quotation, -1)">
-                <i class="material-icons">exposure_neg_1</i>
-              </app-button>
+              <app-button-votes
+                customClasses="btn blue mr-5"
+                voteIcon="exposure_plus_1"
+                voteValue="1"
+                votes="{{ quotation.votes }}"
+                (newVotes)="onAddQuotationVote(quotation, $event)">
+              </app-button-votes>
+              <app-button-votes 
+                customClasses="btn red"
+                voteIcon="exposure_neg_1"
+                voteValue="-1"
+                votes="{{ quotation.votes }}"
+                (newVotes)="onAddQuotationVote(quotation, $event)">
+              </app-button-votes>
             </div>
           </div>
         </div>

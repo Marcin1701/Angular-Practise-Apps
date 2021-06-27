@@ -10,10 +10,6 @@ import { QUOTES } from './models/database';
 export class AppComponent {
   quotes: Quotation[] = QUOTES;
 
-  addVote(quotation: Quotation, value: number) {
-    quotation.votes += value;
-  }
-
   bestQuotes() {
     return this.quotes.filter(q => q.votes > 0);
   }
@@ -24,5 +20,11 @@ export class AppComponent {
 
   onNewQuotation(quotation: Quotation) {
     this.quotes.unshift(quotation);
+  }
+
+  onAddQuotationVote(quotation: Quotation, votes: number) {
+    this.quotes
+    .filter(q => q === quotation)
+    .map(q => q.votes = votes);
   }
 }
