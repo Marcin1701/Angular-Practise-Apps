@@ -7,5 +7,11 @@ import { WordType } from '../data/models';
 })
 export class WordsService {
 
-  constructor() { }
+  private words: WordType[] = [];
+  private nouns: WordType[] = [];
+  private verbs: WordType[] = [];
+
+  constructor() {
+    this.words = WORDS;
+   }
 }
