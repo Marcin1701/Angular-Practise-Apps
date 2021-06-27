@@ -1,0 +1,38 @@
+... implements OnChanges:
+	Start first, monitor if values in input properties have changed.
+	Contains SimpleChanges:
+		prevoius Object Value, current Object Value
+	Register change only inside primitive types - not objects. 
+	Reference stays the same.
+	If reference is the same - object is the same.
+	
+... implements OnInit:
+	Starts after OnChanges. Constructor for component. Runs only once.
+	Get data from service there - initialize data.
+
+... implements DoCheck
+	Starts after invoking component. Extended version of OnInit. 
+	Starts after change detection.
+	Do not implement big logic, may slow down page.
+	
+... implements AfterContentInit
+	Starts after invoking DoCheck - only once.
+
+... implements AfterContentChecked
+	Always after after DoCheck. Projection within ng-content.
+
+... implements AfterViewInit
+	Starts after AfterContentChecked. Have object injected via @ViewChild.
+
+... implements AfterViewChecked
+	Starts after change detection. If @ViewChild was changed.
+	
+... implements OnDestroy
+	Starts only once if component is being destroyed. 
+	After routing component is being destroyed.
+	@HostListener() - invoke when refresh website.
+
+Exception ExpressionChangedAfterItHasBeenCheckedError
+	When we render website with data and after data is rendered we make
+	change on object. Only in dev not in prod.
+	Solution: setTimeout(() => { ... }, 0); update object in next cycle.
