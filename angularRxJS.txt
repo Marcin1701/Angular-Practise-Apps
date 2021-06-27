@@ -1,0 +1,23 @@
+Create observable object:
+const observable: Observable<type> = of (type);
+
+Subscribe - connect to data stream:
+observable.subscribe(x => action());
+
+From - divide data and get single data
+
+Pipe - can be used within map, filter, toArray
+
+Methods on observable:
+rxjs-dev.firebaseapp.com/api/operators
+
+Subject - helps to divide data between subscribers
+const subject = new Subject<number>();
+
+Behavior Subject - subject has to have initialize value
+const behaviorSubject = new BehaviorSubject<string>('A');
+
+Subscribe constains info about state of subscription - close unused subscriptions eg. onDestroy.
+
+
+
