@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { WORDS } from '../data/data-base';
 import { Type, WordType } from '../data/models';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WordsService {
 
-  private words: WordType[] = [];
-  private nouns: WordType[] = [];
-  private verbs: WordType[] = [];
+  private words = new BehaviorSubject<WordType[]>([]);
+  private nouns = new Subject<WordType>();
+  private verbs = new Subject<WordType>();
 
   constructor() {
-    this.words = WORDS;
+    setTimeout(() => {
+      this.words.next(WORDS);
+    }, 2000);
    }
 
    getWords(): WordType[] {
@@ -33,13 +36,13 @@ export class WordsService {
 
    addVerb(value: WordType): void {
      this.verbs.push(value);
-   } 
-   
+   }
+
    check() {
-    this.nouns.map(word => 
+    this.nouns.map(word =>
         (word.correct = word.type === Type.NOUN)
       );
-    this.verbs.map(word => 
+    this.verbs.map(word =>
         (word.correct = word.type === Type.VERB)
       );
    }
