@@ -7,4 +7,14 @@ import { BehaviorSubject, Observer, PartialObserver, Subject } from 'rxjs';
 })
 export class DataService {
 
+  behaviorSubject = new BehaviorSubject<Person[]>([]);
+
+  subject = new Subject<Person[]>();
+
+  constructor(private dataBaseService: DataBaseService) {}
+
+  private init(): void {
+    
+  }
+
 }
