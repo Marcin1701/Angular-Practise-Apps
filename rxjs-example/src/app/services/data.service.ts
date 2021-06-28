@@ -12,16 +12,18 @@ export class DataService {
   subject = new Subject<Person[]>();
 
   constructor(private dataBaseService: DataBaseService) {
+    // Get data
     this.init();
   }
 
   addPerson(person: Person) {
-
+    this.dataBaseService.addPerson(person);
   }
 
   private init(): void {
     this.dataBaseService.fetchPersons().subscribe(
-      // Recieve person and send into behaviorSubject and subject
+      // Recieve person and send into 
+      // behaviorSubject and subject
       (persons: Person[]) => {
         this.behaviorSubject.next(persons);
         this.subject.next(persons);
@@ -33,6 +35,15 @@ export class DataService {
     );
   }
 
-
+  private observer(): Observer<Person[]> {
+    return {
+      next: (persons: Person[]) => {
+        this.behaviorSubject.next(persons);
+        this.subject.next(persons);
+      }, 
+      error: error => console.error(error),
+      complete: () => console.log('Complete!')
+    }
+  }
 
 }
