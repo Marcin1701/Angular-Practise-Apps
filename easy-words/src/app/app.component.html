@@ -5,14 +5,14 @@
   <div class="col s6">
     <app-answers
     title="Nouns"
-    [words]="nouns"
+    [word]="nouns | async"
     >
     </app-answers>
   </div>
   <div class="col s6">
     <app-answers
     title="Verbs"
-    [words]="verbs"
+    [word]="verbs | async"
     >
     </app-answers>
   </div>
