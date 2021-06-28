@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Person } from './services/data-base.service';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,10 @@ import { Person } from './services/data-base.service';
 export class AppComponent {
   hidden = true;
   person: Person = { firstName: '', lastName: '' };
-  constructor() {}
 
-  add() {
+  constructor(private dataService: DataService) {}
 
+  add(): void {
+    this.dataService.addPerson(this.person);
   }
 }
