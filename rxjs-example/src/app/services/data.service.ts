@@ -17,21 +17,12 @@ export class DataService {
   }
 
   addPerson(person: Person) {
-    this.dataBaseService.addPerson(person);
+    this.dataBaseService.addPerson(person).subscribe(this.observer());
   }
 
   private init(): void {
     this.dataBaseService.fetchPersons().subscribe(
-      // Recieve person and send into 
-      // behaviorSubject and subject
-      (persons: Person[]) => {
-        this.behaviorSubject.next(persons);
-        this.subject.next(persons);
-      },
-      // Log any errors
-      error => console.log(error),
-      // Invoke complete method
-      () => console.log('Complete!')
+      this.observer()
     );
   }
 
@@ -45,5 +36,4 @@ export class DataService {
       complete: () => console.log('Complete!')
     }
   }
-
 }
