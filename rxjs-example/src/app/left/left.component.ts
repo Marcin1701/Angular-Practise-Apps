@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Person } from '../services/data-base.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-left',
@@ -7,10 +9,19 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class LeftComponent implements OnInit, OnDestroy {
 
-  constructor() {}
+  persons: Person[];
+
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-
+    this.dataService.behaviorSubject.subscribe(
+      (data: Person[]) => {
+        this.persons = data;
+        console.log('Left Component Subscription');
+      }, 
+      error => console.log(error),
+      () => console.log('Left Component Complete?')
+    )
   }
 
   ngOnDestroy(): void {
