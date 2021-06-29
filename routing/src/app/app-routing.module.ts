@@ -4,6 +4,11 @@ import { MoviesComponent } from './pages/movies/movies.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/movies',
+    pathMatch: 'full'
+  },
+  {
     path: 'movies',
     component: MoviesComponent
   }
