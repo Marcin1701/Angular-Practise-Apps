@@ -16,16 +16,16 @@ const routes: Routes = [
     component: MoviesComponent
   },
   {
+    path: 'movie/:id',
+    component: MovieDetailsComponent
+  },
+  {
     path: 'categories',
     component: CategoriesComponent
   },
   {
     path: '**',
     component: PageNotFoundComponent
-  },
-  {
-    path: 'movie/:id',
-    component: MovieDetailsComponent
   }
 ];
 
