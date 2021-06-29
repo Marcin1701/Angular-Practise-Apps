@@ -13,9 +13,13 @@ import { Movie } from '../../../models/movie';
 export class MoviesInCategoryComponent implements OnInit {
   movies: Observable<Movie[]>;
 
-  constructor() {}
+  constructor(
+    private http: HttpService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-
+    const category = this.route.snapshot.paramMap.get('category');
+    this.movies = this.http.getMoviesFromCategory(category);
   }
 }
