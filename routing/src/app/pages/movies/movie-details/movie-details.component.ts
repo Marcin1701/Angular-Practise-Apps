@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from '../../../services/http.service';
 import { Movie } from '../../../models/movie';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
@@ -13,7 +13,10 @@ import { switchMap } from 'rxjs/operators';
 export class  MovieDetailsComponent implements OnInit {
   movieDetails: Observable<Movie>;
 
-  constructor(private http: HttpService, private route: ActivatedRoute) {
+  constructor(private http: HttpService,
+              private route: ActivatedRoute,
+              private router: Router
+  ) {
 
   }
 
@@ -25,5 +28,8 @@ export class  MovieDetailsComponent implements OnInit {
   }
 
   goToMovies() {
+    this.router
+      .navigate(['/movies'])
+      .then(r => r.valueOf());
   }
 }

@@ -15,5 +15,7 @@ export class MoviesInCategoryComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 }
