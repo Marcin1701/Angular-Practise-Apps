@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movie';
 import { tap } from 'rxjs/operators';
@@ -39,5 +39,11 @@ export class HttpMoviesService {
 
   deleteMovie(id: string): Observable<{}> {
     return this.http.delete<{}>(this.url + '/movies' + id);
+  }
+
+  makeError(): Observable<HttpErrorResponse> {
+    return this.http
+      .delete(this.url + '/' + 999)
+      .pipe(tap(console.log));
   }
 }
