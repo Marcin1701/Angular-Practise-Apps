@@ -8,6 +8,7 @@ import { MovieDetailsComponent } from './pages/movies/movie-details/movie-detail
 import { YearsComponent } from './pages/years/years.component';
 import { MovieInYearComponent } from './pages/years/movie-in-year/movie-in-year.component';
 import { HttpTestComponent } from './pages/http-test/http-test.component';
+import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'category/:category', component: MoviesInCategoryComponent },
   { path: 'years', component: YearsComponent },
+  { path: 'add-movie', component: AddMovieComponent },
   { path: 'year/:year', component: MovieInYearComponent },
   { path: 'http-test', component: HttpTestComponent },
   { path: '**', component: PageNotFoundComponent },
