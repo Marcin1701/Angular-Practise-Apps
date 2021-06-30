@@ -1,8 +1,8 @@
 <div class="grid">
-  <form class="container">
+  <form class="container" (ngSubmit)='send()'>
     <div class="row">
       <div class="input-field col s8">
-        <input id="title" type="text"/>
+        <input id="title" type="text" [(ngModel)]='model.title' name='title'/>
         <label for="title">Title</label>
       </div>
     </div>
@@ -24,31 +24,31 @@
     </div>
     <div class="row">
       <div class="input-field col s8">
-        <input id="director" type="text"/>
+        <input id="director" type="text" [(ngModel)]='model.director' name='director'/>
         <label for="director">Director</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s8">
-        <input id="plot" type="text"/>
+        <input id="plot" type="text" [(ngModel)]='model.plot' name='plot'/>
         <label for="plot">Plot</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s8">
-        <input id="country" type="text"/>
+        <input id="country" type="text" [(ngModel)]='model.country' name='country'/>
         <label for="country">Country</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s8">
-        <input id="imdb" type="text"/>
+        <input id="imdb" type="text" [(ngModel)]='model.imdbRating' name='imdbRating'/>
         <label for="imdb">IMDB Rating</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s8">
-        <input id="poster" type="text"/>
+        <input id="poster" type="text" [(ngModel)]='model.poster' name='poster'/>
         <label for="poster">Poster</label>
       </div>
     </div>
