@@ -46,4 +46,12 @@ export class HttpMoviesService {
       .delete(this.url + '/' + 999)
       .pipe(tap(console.log));
   }
+
+  private handleError(error: HttpErrorResponse) {
+    console.error(
+      `Name: ${error.name} \n` +
+      `Message: ${error.message} \n` +
+      `Returned code: ${error.status} \n`
+    );
+  }
 }
