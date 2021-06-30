@@ -28,4 +28,8 @@ export class HttpMoviesService {
     return this.http.post(this.url + '/movies', movie)
       .pipe(tap(console.log))
   }
+
+  putMovie(id: number, movie: Movie): Observable<Movie> {
+    return this.http.put<Movie>(this.url + '/movies/' + id, movie);
+  }
 }

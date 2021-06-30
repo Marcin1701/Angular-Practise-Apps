@@ -8,6 +8,9 @@ import { Movie } from '../../models/movie';
   styleUrls: ['./http-test.component.css'],
 })
 export class HttpTestComponent {
+
+  testMovie: Movie;
+
   constructor(private http: HttpMoviesService) {}
 
   get() {
@@ -25,10 +28,16 @@ export class HttpTestComponent {
       title: 'Wiedźmin',
       imdbRating: '10.0'
     };
-    this.http.postMovie(testMovie).subscribe();
+    this.http.postMovie(testMovie).subscribe(data =>
+      this.testMovie = data
+    );
   }
 
-  put() {}
+  put() {
+    this.testMovie.title = 'PUT witcher';
+    console.log(this.testMovie);
+    this.http.putMovie(Number(this.testMovie.id), this.testMovie).subscribe()
+  }
 
   patch() {}
 
