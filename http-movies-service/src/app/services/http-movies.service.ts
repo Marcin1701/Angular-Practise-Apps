@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Movie } from '../models/movie';
 import { tap } from 'rxjs/operators';
 
@@ -42,16 +42,15 @@ export class HttpMoviesService {
   }
 
   makeError(): Observable<HttpErrorResponse> {
-    return this.http
-      .delete(this.url + '/' + 999)
-      .pipe(tap(console.log));
+    return this.http.delete(this.url + '/' + 999).pipe(tap(console.log));
   }
 
-  private handleError(error: HttpErrorResponse) {
+  private handleError(error: HttpErrorResponse): Observable<never> {
     console.error(
       `Name: ${error.name} \n` +
       `Message: ${error.message} \n` +
       `Returned code: ${error.status} \n`
     );
+    return throwError('Something bad happened; please try again later.');
   }
 }
