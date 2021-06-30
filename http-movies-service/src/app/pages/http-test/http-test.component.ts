@@ -9,6 +9,8 @@ import { Movie } from '../../models/movie';
 })
 export class HttpTestComponent {
 
+  errorMessage: string;
+
   testMovie: Movie;
 
   constructor(private http: HttpMoviesService) {}
@@ -61,6 +63,8 @@ export class HttpTestComponent {
   }
 
   error() {
-    this.http.makeError().subscribe();
+    this.http.makeError().subscribe({ error: (err: string) =>
+      this.errorMessage = err
+    });
   }
 }
