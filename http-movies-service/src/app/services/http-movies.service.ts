@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movie';
 import { tap } from 'rxjs/operators';
@@ -13,8 +13,14 @@ export class HttpMoviesService {
 
   constructor(private http: HttpClient) {}
 
+  // getMovies(): Observable<Movie[]> {
+  //   return this.http.get<Movie[]>(this.url + '/movies')
+  //     .pipe(tap(console.log));
+  // }
+
   getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.url + '/movies')
+    return this.http.get<HttpResponse<Movie[]>>(this.url + '/movies',
+      {observe: 'response'})
       .pipe(tap(console.log));
   }
 }
