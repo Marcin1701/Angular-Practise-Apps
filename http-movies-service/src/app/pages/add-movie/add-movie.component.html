@@ -1,5 +1,5 @@
 <div class="grid">
-  <form class="container" (ngSubmit)='send()'>
+  <form class="container" (ngSubmit)='send()' #form='ngForm'>
     <div class="row">
       <div class="input-field col s8">
         <input id="title"
@@ -82,7 +82,7 @@
         <label for="poster">Poster</label>
       </div>
     </div>
-    <button class="btn-small" type="submit">Send</button>
+    <button class="btn-small" type="submit" [disabled]='form.invalid'>Send</button>
     <button class="btn-small red" type="reset">Reset</button>
   </form>
 </div>
