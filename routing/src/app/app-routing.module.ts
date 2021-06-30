@@ -5,6 +5,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { MovieDetailsComponent } from './pages/movies/movie-details/movie-details.component';
 import { MoviesInCategoryComponent } from './pages/categories/movies-in-category/movies-in-category.component';
+import { YearsComponent } from './pages/years/years.component';
+import { MovieInYearsComponent } from './pages/years/movie-in-years/movie-in-years.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,14 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoriesComponent
+  },
+  {
+    path: 'years',
+    component: YearsComponent
+  },
+  {
+    path: 'year/:year',
+    component: MovieInYearsComponent
   },
   {
     path: 'category/:category',
