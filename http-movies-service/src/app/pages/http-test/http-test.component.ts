@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpMoviesService } from '../../services/http-movies.service';
 import { Movie } from '../../models/movie';
 
@@ -34,12 +34,27 @@ export class HttpTestComponent {
   }
 
   put() {
-    this.testMovie.title = 'PUT witcher';
-    console.log(this.testMovie);
-    this.http.putMovie(Number(this.testMovie.id), this.testMovie).subscribe()
+    const newMovieObject: Movie = {
+      id: this.testMovie.id,
+      country: 'Poland',
+      director: 'Marek Brodzki',
+      category: 'Fantasy',
+      plot: 'Zabójca potworów musi wybrać mniejsze zło.',
+      poster: null,
+      year: '2001',
+      title: 'Wiedźmin',
+      imdbRating: '10.0'
+    }
+    this.http.putMovie(Number(this.testMovie.id), newMovieObject);
   }
 
-  patch() {}
+  patch() {
+    const partialMovie: Partial<Movie> = {
+      id: this.testMovie.id,
+      plot: 'New plot'
+    }
+    this.http.patchMovie(partialMovie).subscribe()
+  }
 
   delete() {}
 }
