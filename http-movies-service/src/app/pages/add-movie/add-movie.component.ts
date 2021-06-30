@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-movie',
