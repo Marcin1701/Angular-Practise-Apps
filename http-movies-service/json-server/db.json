@@ -571,6 +571,28 @@
       "title": "Forrest Gump",
       "imdbRating": "8.8",
       "id": 53
+    },
+    {
+      "country": "Poland",
+      "director": "Marek Brodzki",
+      "category": "Fantasy",
+      "plot": "Zabójca potworów musi wybrać mniejsze zło.",
+      "poster": null,
+      "year": "2001",
+      "title": "Wiedźmin",
+      "imdbRating": "10.0",
+      "id": 54
+    },
+    {
+      "country": "Poland",
+      "director": "Marek Brodzki",
+      "category": "Fantasy",
+      "plot": "Zabójca potworów musi wybrać mniejsze zło.",
+      "poster": null,
+      "year": "2001",
+      "title": "Wiedźmin",
+      "imdbRating": "10.0",
+      "id": 55
     }
   ],
   "categories": [
@@ -628,4 +650,3 @@
     "1950"
   ]
 }
-
