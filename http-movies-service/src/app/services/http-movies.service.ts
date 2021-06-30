@@ -2,16 +2,25 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Movie } from '../models/movie';
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpMoviesService {
 
+  constructor(private http: HttpClient) {}
+
   private url = 'http://localhost:3000';
 
-  constructor(private http: HttpClient) {}
+  private static handleError(error: HttpErrorResponse): Observable<never> {
+    console.error(
+      `Name: ${error.name} \n` +
+      `Message: ${error.message} \n` +
+      `Returned code: ${error.status} \n`
+    );
+    return throwError('Something bad happened; please try again later.');
+  }
 
   // getMovies(): Observable<Movie[]> {
   //   return this.http.get<Movie[]>(this.url + '/movies')
@@ -42,15 +51,7 @@ export class HttpMoviesService {
   }
 
   makeError(): Observable<HttpErrorResponse> {
-    return this.http.delete(this.url + '/' + 999).pipe(tap(console.log));
-  }
-
-  private handleError(error: HttpErrorResponse): Observable<never> {
-    console.error(
-      `Name: ${error.name} \n` +
-      `Message: ${error.message} \n` +
-      `Returned code: ${error.status} \n`
-    );
-    return throwError('Something bad happened; please try again later.');
+    return this.http.delete(this.url + '/' + 999)
+      .pipe(tap(console.log), catchError(HttpMoviesService.handleError));
   }
 }
