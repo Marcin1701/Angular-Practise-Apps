@@ -1,8 +1,11 @@
 <div class='grid'>
   <form class='container'>
+    <!-- Name must be unique in form -->
     <input
       placeholder='Title'
       type='text'
+      [(ngModel)]='model.title'
+      name='title'
     />
   </form>
 </div>
