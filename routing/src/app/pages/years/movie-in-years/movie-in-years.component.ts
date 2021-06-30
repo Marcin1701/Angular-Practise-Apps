@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../../services/http.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Movie } from '../../../models/movie';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-in-years',
@@ -7,9 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieInYearsComponent implements OnInit {
 
-  constructor() { }
+  movies: Observable<Movie[]>;
+
+  constructor(private http: HttpService,
+              private router: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.movies = this.router.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.http.getMoviesFromYear(params.get('year'))
+      )
+    )
   }
-
 }

@@ -1,1 +1,6 @@
-<p>movie-in-years works!</p>
+<div class="grid">
+  <app-movie-cover
+    *ngFor="let movie of movies | async"
+    [movie]="movie"
+  ></app-movie-cover>
+</div>
