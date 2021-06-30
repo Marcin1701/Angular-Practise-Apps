@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Movie } from '../models/movie';
 import { catchError, tap } from 'rxjs/operators';
@@ -56,8 +56,14 @@ export class HttpMoviesService {
   }
 
   headers(): Observable<HttpResponse<Movie[]>> {
+    const myHeaders = new HttpHeaders({
+      Authorizations: 'token',
+      'Content-Type': 'application/json',
+      'X-Custom-Header': 'customowy naglowek',
+    });
     return this.http
-      .get(this.url, { observe: 'response' })
+      .get(this.url + '/movies',
+        { observe: 'response', headers: myHeaders })
       .pipe(
         tap((res: HttpResponse<Movie[]>) => {
           console.log(res.headers.keys());
