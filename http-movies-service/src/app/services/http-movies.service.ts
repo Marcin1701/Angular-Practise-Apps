@@ -36,4 +36,8 @@ export class HttpMoviesService {
   patchMovie(movie: Partial<Movie>): Observable<Movie> {
     return this.http.patch<Movie>(this.url + '/movies/' + movie.id, movie);
   }
+
+  deleteMovie(id: string): Observable<{}> {
+    return this.http.delete<{}>(this.url + '/movies' + id);
+  }
 }
