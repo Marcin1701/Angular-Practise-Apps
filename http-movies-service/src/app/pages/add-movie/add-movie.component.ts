@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-movie',
@@ -14,5 +15,9 @@ export class AddMovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.model = { title: 'Film' };
+  }
+
+  send(movieForm: NgForm) {
+    console.log(movieForm);
   }
 }

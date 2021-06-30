@@ -1,5 +1,5 @@
 <div class='grid'>
-  <form class='container'>
+  <form class='container' #movieForm='ngForm'>
     <!-- Name must be unique in form -->
     <input
       placeholder='Title'
@@ -7,5 +7,6 @@
       [(ngModel)]='model.title'
       name='title'
     />
+    <button (click)='send(movieForm)'>Send</button>
   </form>
 </div>
