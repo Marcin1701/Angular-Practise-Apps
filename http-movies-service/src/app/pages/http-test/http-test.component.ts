@@ -67,4 +67,8 @@ export class HttpTestComponent {
       this.errorMessage = err
     });
   }
+
+  headers() {
+    this.http.headers().subscribe();
+  }
 }

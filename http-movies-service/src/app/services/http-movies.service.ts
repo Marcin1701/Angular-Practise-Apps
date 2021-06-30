@@ -47,11 +47,25 @@ export class HttpMoviesService {
   }
 
   deleteMovie(id: string): Observable<{}> {
-    return this.http.delete<{}>(this.url + '/movies' + id);
+    return this.http.delete<{}>(this.url + '/movies/' + id);
   }
 
   makeError(): Observable<HttpErrorResponse> {
     return this.http.delete(this.url + '/' + 999)
       .pipe(tap(console.log), catchError(HttpMoviesService.handleError));
+  }
+
+  headers(): Observable<HttpResponse<Movie[]>> {
+    return this.http
+      .get(this.url, { observe: 'response' })
+      .pipe(
+        tap((res: HttpResponse<Movie[]>) => {
+          console.log(res.headers.keys());
+          console.log(res.headers.get('Cache-Control'));
+          console.log(res.headers.get('Content-Type'));
+          console.log(res.headers.get('Expires'));
+          console.log(res.headers.get('Pragma'));
+        })
+      );
   }
 }
